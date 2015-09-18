@@ -46,6 +46,9 @@ Rev X1 boards will require rework to connec the CS line to logic ground the 90E2
 and this prevents the line from being used as a chip select. For use with the AVR firmware, CS must also be connected to logic ground. 
 This can be accomplished with some 30 AWG wire wrap wire.
 
+![Rework1](x1rework1.jpg)
+![Rework2](x1rework2.jpg)
+
 **Firmware**
 
 The AVR firmware for this project can be found [here](https://github.com/hwstar/FW-AC-Emeter)
