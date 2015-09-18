@@ -48,11 +48,15 @@ source (K$) and precision resistive and reactive AC loads (K$), then the calibra
 5cm x 10cm
 
 
-** Some Rework Required on rev X1 board blanks **
+**Some Rework Required on rev X1 board blanks**
 
 Rev X1 boards will require rework to connect the ~CS line to logic ground the 90E24 and open the ~CS and IRQ lines to the ESP8266.  My ESP8266 devices want to force GPIO5 high
 and this prevents the line from being used as a chip select. For use with the AVR firmware, ~CS must also be connected to logic ground. 
 This can be accomplished by scraping away the ground soldermask and bridging ground to the ~CS line.
+
+If there is enough interest, I'll spin a rev A board blank. The X1 blanks are useable even though they have a bodge on the bottom side of the board.
+
+Rework picture:
 
 
 ![Rework1](x1rework1.jpg)
