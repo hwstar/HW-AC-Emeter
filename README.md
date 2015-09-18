@@ -42,7 +42,7 @@ This board was designed using KICAD.
 
 ** Some Rework Required on rev X1 board blanks **
 
-Rev X1 boards will require rework to connec the CS line to logic ground the 90E24 and open the ~CS and IRQ lines to the ESP8266.  My ESP8266 devices want to force GPIO5 high
+Rev X1 boards will require rework to connect the ~CS line to logic ground the 90E24 and open the ~CS and IRQ lines to the ESP8266.  My ESP8266 devices want to force GPIO5 high
 and this prevents the line from being used as a chip select. For use with the AVR firmware, ~CS must also be connected to logic ground. 
 This can be accomplished by scraping away the ground soldermask and bridging ground to the ~CS line.
 
