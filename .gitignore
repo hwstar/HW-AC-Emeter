@@ -1,0 +1,4 @@
+*.kicad_pcb-bak
+*.zip
+*.bak
+*.xml
