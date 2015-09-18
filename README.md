@@ -35,6 +35,14 @@ from being BLOWN UP.
 
 This board was designed using KICAD. 
 
+
+**Calibration**
+
+This is the challenging part. I took some shortcuts and cut some corners. Read the 90E24 data sheet about how to go about this correctly. You need to have some way of presenting known AC loads to the unit, and correlating the results seen in the registers. I used a 60 watt bulb as a resistive load,
+and a variac and shaded pole motor as a reactive load. This is really far from ideal as your wall socket mains voltage will vary enough to make the effort challenging and error-prone. If you have access to a stable AC power
+source (K$) and precision resistive and reactive AC loads (K$), then the calibration will be much easier. The firmware will save calibration  values to non volatile memory. 
+
+
 **Board Size**
 
 5cm x 10cm
@@ -45,6 +53,7 @@ This board was designed using KICAD.
 Rev X1 boards will require rework to connect the ~CS line to logic ground the 90E24 and open the ~CS and IRQ lines to the ESP8266.  My ESP8266 devices want to force GPIO5 high
 and this prevents the line from being used as a chip select. For use with the AVR firmware, ~CS must also be connected to logic ground. 
 This can be accomplished by scraping away the ground soldermask and bridging ground to the ~CS line.
+
 
 ![Rework1](x1rework1.jpg)
 
