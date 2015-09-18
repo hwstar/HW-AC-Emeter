@@ -11,7 +11,8 @@ energy and with firmware, you can convert the energy pulses into kilowatt hours.
 
 This board contains an ESP12 module, and an Atmel 90E24 Energy monitor chip.
 The board can be powered from any floating voltage source from 5V to 12V. You can optionally stuff an ESP8266 or an 8 pin connector for use with an AVR (Arduino board) or other
-microprocessor which has 3 free GPIO pins.
+microprocessor which has 3 free GPIO pins. The board partially shown on the far right is used to isolate the serial data signals from the ESP8266 from mains potential to protect your computer (see NB below).
+I have a separate project on Github for the [isolated USB serial port](http://github.com/hwstar/ISO-Port) 
 
 The board is inserted into a the live (phase) and neutral leads going to a a load which runs on mains voltages.
 
