@@ -27,7 +27,7 @@ you want to keep your scope or other grounded test equipment from being BLOWN UP
 2. The SPI signals going to your microprocessor are not isolated from mains so your whole system will
 be at line potential. Hooking these up to something which is not floating WILL cause everything connected to be DESTROYED.
 
-3. The RS-232 signals on the ESP8266 version are also not isolated and are at line potential. It is absolutely required that you use an isolated USB serial interface to prevent your computer
+3. The serial data signals on the ESP8266 version are also not isolated and are at line potential. It is absolutely required that you use an isolated USB serial interface to prevent your computer
 from being BLOWN UP.
 
 4. The power supply for Atmel 90E24 must be floating. Do not use your lab power supply or any other power supply which is not floating. Use an ungrounded 5 volt wall wart for testing.
