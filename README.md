@@ -27,7 +27,7 @@ you want to keep your scope or other grounded test equipment from being BLOWN UP
 2. The SPI signals going to your microprocessor are not isolated from mains so your whole system will
 be at line potential. Hooking these up to something which is not floating WILL cause everything connected to be DESTROYED.
 
-3. The RS-232 signals on the ESP8266 version are also not isolated and are at line potential. It is recommended to use an isolated USB RS-232 interface to prevent your computer
+3. The RS-232 signals on the ESP8266 version are also not isolated and are at line potential. It is absolutely required that you use an isolated USB serial interface to prevent your computer
 from being BLOWN UP.
 
 4. The power supply for Atmel 90E24 must be floating. Do not use your lab power supply or any other power supply which is not floating. Use an ungrounded 5 volt wall wart for testing.
@@ -53,7 +53,7 @@ source (K$) and precision resistive and reactive AC loads (K$), then the calibra
 
 Rev X1 boards will require rework to connect the ~CS line to logic ground the 90E24 and open the ~CS and IRQ lines to the ESP8266.  My ESP8266 devices want to force GPIO5 high
 and this prevents the line from being used as a chip select. For use with the AVR firmware, ~CS must also be connected to logic ground. 
-This can be accomplished by scraping away the ground soldermask and bridging ground to the ~CS line.
+This can be accomplished by scraping away the ground soldermask and bridging ground to the ~CS line. See the rework picture below for details.
 
 If there is enough interest, I'll spin a rev A board blank. The X1 blanks are useable even though they have a bodge on the bottom side of the board.
 
@@ -64,6 +64,7 @@ Rework picture:
 
 1. The cut on the left is the IRQ line
 2. The cut and solder bridge on the right is the ~CS line.
+3. Optional: Add 3.3V to pin 3 of the ESP8266 programming if you are using one of my isolator boards.
 
 
 
