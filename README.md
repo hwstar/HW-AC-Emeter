@@ -45,27 +45,25 @@ source (K$) and precision resistive and reactive AC loads (K$), then the calibra
 
 Here is my procedure for the ESP8266 version (which can probably be improved)
 
-1. With an AC source connected no load connected, calibrate the RMS voltage by writing test values to  the UGAIN register address 0x31. Example mqtt command: 
-{"command":"register","addr":"31","value":"XXXX"} Where XXXX is a 4 digit hex number. Read back voltage values using the query command, and adjust UGAIN until you achieve reasonable correlation. It helps to do this
-when your mains voltage is the most stable (Early in the morning). The UGAIN calibration values on I saw were between 0x6410 and 0x6460
-2. Next, read the current with a load disconnected, and note that there is a small offset on IRMS. We need to zero out this offset before we calibrate the current. 
-We will need to write values to the IOFFSETL register at address 0x35. The values I saw were between 0xF7E0 and 0xF8A0.
+1. With an AC source connected no load connected, calibrate the RMS voltage by writing test values to  the Ugain register address 0x31. Example mqtt command: 
+{"command":"register","addr":"31","value":"XXXX"} Where XXXX is a 4 digit hex number. Read back voltage values using the query command, and adjust Ugain until you achieve reasonable correlation. It helps to do this
+when your mains voltage is the most stable (Early in the morning). The Ugain calibration values on I saw were between 0x6410 and 0x6460
+2. Next, read the current with a load disconnected, and note that there is a small offset on Irms. We need to zero out this offset before we calibrate the current. 
+We will need to write values to the IoffsetL register at address 0x35. The values I saw were between 0xF7E0 and 0xF8A0.
 3. Connect a resistive load and an accurate current meter such as a true RMS 5 1/2 digit DMM. Adjust the value in the IGAIN register 0x32 so that the reading on the accurate current meter matches
-the IRMS value returned by the query command. The calibration values for the IGAIN register I saw were between 0x4A00 and  0x4AC0.
-4. Make sure the PSTARTTH is set to its default value of 0x8BD in register 0x27. 
+the IRMS value returned by the query command. The calibration values for the Igain register I saw were between 0x4A00 and  0x4AC0.
+4. Make sure the PstartTH is set to its default value of 0x8BD in register 0x27. 
 5. Disconnect any load. Write 0x400 into the PNolTh register at address 0x28. This prevents the unit from metering at very low currents like when there is no load connected.
 6. Make sure the LPHI register at address 0x24  is set to 0. Reactive load calibration is a future improvement to this procedure. 
 7. Connect a known resistive load which is switched off. Reset the kwh accumulator in the firmware using the MQTT command {"command":"resetkwh"}. Arm a stopwatch. 
-Turn on the load and start the stopwatch simulteneously. Run for 6 minutes, and turn off the load. Note the kWh returned with a query command. This will be 1/10 of the desired value. If it is off, 
-adjust the value in the LGAIN register at address 0x27, reset the kwh accumulator, and repeat until correlation is acheived. The values I saw were between 0xF200 and 0xF300.
+Turn on the load and start the stopwatch simultaneously. Run for 6 minutes, and turn off the load. Note the kWh returned with a query command. This will be 1/10 of the desired value. If it is off, 
+adjust the value in the Lgain register at address 0x27, reset the kwh accumulator, and repeat until correlation is acheived. The values I saw were between 0xF200 and 0xF300.
 
 Note that this procedure does not encompass using small power mode as recommended in the datasheet.
 
-Loose Ends:
-
-I did notice a few percent difference  (0.48 vs 0.52) in the power factor between a kill-a-watt and this project with a shaded pole motor and variac. I'm not sure how accurate the kill-a-watt is or if there
-is really a voltage to current phase issue in the design.  One could tweak the LPHI register, but then that causes issues with the phase angle reading.
-
+There are 2 registers used for adjusting the reactive measurements. Lphi (0x24) which adjusts the phase angle and power factor, and QoffsetL (0x38) which adjusts reactive power (Qmean). 
+Once the calibration procedure above is completed, Qmean can be calibrated by using the power triangle formula: Qmean = sqrt(Smean^2 - Pmean^2). Where Smean is the apparent power, and Pmean
+is the true power. Adjust QoffsetL until qmean matches the calculated value. Once QOffsetL is adjusted, then adjust Lphi to get the power factor to match a calibrated meter.
 
 **Board Size**
 
