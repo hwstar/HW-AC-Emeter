@@ -61,10 +61,8 @@ adjust the value in the Lgain register at address 0x23, reset the kwh accumulato
 
 Note that this procedure does not encompass using small power mode as recommended in the datasheet.
 
-There are 2 registers used for adjusting the reactive measurements. Lphi (0x24) which adjusts the phase angle and power factor, and QoffsetL (0x38) which adjusts reactive power (Qmean). 
-Once the calibration procedure above is completed, Qmean can be calibrated by using the power triangle formula: Qmean = sqrt(Smean^2 - Pmean^2). Where Smean is the apparent power, and Pmean
-is the true power. Adjust QoffsetL until qmean matches the calculated value. Once QOffsetL is adjusted, then adjust Lphi to get the power factor to match a calibrated meter. You may have do
-do a few iterations to dial the reactive measurements in.
+There are 2 registers used for adjusting the reactive measurements. Lphi (0x24) which adjusts the phase angle and power factor, and QoffsetL (0x38) which adjusts reactive power (Qmean) offset. 
+Once the calibration procedure above is completed, adjust Lphi to get the power factor to match a calibrated meter.
 
 **Board Size**
 
