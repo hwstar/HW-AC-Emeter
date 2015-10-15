@@ -50,20 +50,21 @@ Here is my procedure for the ESP8266 version (which can probably be improved)
 when your mains voltage is the most stable (Early in the morning). The Ugain calibration values on I saw were between 0x6410 and 0x6460
 2. Next, read the current with a load disconnected, and note that there is a small offset on Irms. We need to zero out this offset before we calibrate the current. 
 We will need to write values to the IoffsetL register at address 0x35. The values I saw were between 0xF7E0 and 0xF8A0.
-3. Connect a resistive load and an accurate current meter such as a true RMS 5 1/2 digit DMM. Adjust the value in the IGAIN register 0x32 so that the reading on the accurate current meter matches
-the IRMS value returned by the query command. The calibration values for the Igain register I saw were between 0x4A00 and  0x4AC0.
+3. Connect a resistive load and an accurate current meter such as a true RMS 5 1/2 digit DMM. Adjust the value in the Igain register 0x32 so that the reading on the accurate current meter matches
+the Irms value returned by the query command. The calibration values for the Igain register I saw were between 0x4A00 and  0x4AC0.
 4. Make sure the PstartTH is set to its default value of 0x8BD in register 0x27. 
 5. Disconnect any load. Write 0x400 into the PNolTh register at address 0x28. This prevents the unit from metering at very low currents like when there is no load connected.
-6. Make sure the LPHI register at address 0x24  is set to 0. Reactive load calibration is a future improvement to this procedure. 
+6. Make sure the Lphi register at address 0x24  is set to 0. Reactive load calibration is a future improvement to this procedure. 
 7. Connect a known resistive load which is switched off. Reset the kwh accumulator in the firmware using the MQTT command {"command":"resetkwh"}. Arm a stopwatch. 
 Turn on the load and start the stopwatch simultaneously. Run for 6 minutes, and turn off the load. Note the kWh returned with a query command. This will be 1/10 of the desired value. If it is off, 
-adjust the value in the Lgain register at address 0x27, reset the kwh accumulator, and repeat until correlation is acheived. The values I saw were between 0xF200 and 0xF300.
+adjust the value in the Lgain register at address 0x23, reset the kwh accumulator, and repeat until correlation is acheived. The values I saw were between 0xF200 and 0xF300.
 
 Note that this procedure does not encompass using small power mode as recommended in the datasheet.
 
 There are 2 registers used for adjusting the reactive measurements. Lphi (0x24) which adjusts the phase angle and power factor, and QoffsetL (0x38) which adjusts reactive power (Qmean). 
 Once the calibration procedure above is completed, Qmean can be calibrated by using the power triangle formula: Qmean = sqrt(Smean^2 - Pmean^2). Where Smean is the apparent power, and Pmean
-is the true power. Adjust QoffsetL until qmean matches the calculated value. Once QOffsetL is adjusted, then adjust Lphi to get the power factor to match a calibrated meter.
+is the true power. Adjust QoffsetL until qmean matches the calculated value. Once QOffsetL is adjusted, then adjust Lphi to get the power factor to match a calibrated meter. You may have do
+do a few iterations to dial the reactive measurements in.
 
 **Board Size**
 
