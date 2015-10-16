@@ -37,7 +37,7 @@ encoding utf-8
 Sheet 2 4
 Title "POWER MONITOR, AC"
 Date ""
-Rev "X1"
+Rev "A"
 Comp ""
 Comment1 ""
 Comment2 ""
