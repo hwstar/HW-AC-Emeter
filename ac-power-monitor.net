@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/srodgers/projects/kicad/ac-power-monitor/ac-power-monitor.sch)
-    (date "Tue 22 Sep 2015 16:14:39 PDT")
+    (date "Fri 16 Oct 2015 07:50:50 PDT")
     (tool "Eeschema (2015-08-16 BZR 6096)-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -447,15 +447,40 @@
       (sheetpath (names /WIFI/) (tstamps /55C8F02A/))
       (tstamp 5601DF84)))
   (libparts
-    (libpart (lib custom) (part FASTON_1)
-      (description "1 pin")
+    (libpart (lib custom) (part CONN8)
       (fields
-        (field (name Reference) P)
-        (field (name Value) FASTON_1)
-        (field (name PartNumber) 800157-101))
+        (field (name Reference) J)
+        (field (name Value) CONN8)
+        (field (name PartNumber) 800114-108))
       (pins
-        (pin (num 1) (name 1) (type passive))
-        (pin (num 2) (name 2) (type passive))))
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))
+        (pin (num 3) (name ~) (type passive))
+        (pin (num 4) (name ~) (type passive))
+        (pin (num 5) (name ~) (type passive))
+        (pin (num 6) (name ~) (type passive))
+        (pin (num 7) (name ~) (type passive))
+        (pin (num 8) (name ~) (type passive))))
+    (libpart (lib custom) (part CONN6)
+      (fields
+        (field (name Reference) J)
+        (field (name Value) CONN6)
+        (field (name PartNumber) 800114-106))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))
+        (pin (num 3) (name ~) (type passive))
+        (pin (num 4) (name ~) (type passive))
+        (pin (num 5) (name ~) (type passive))
+        (pin (num 6) (name ~) (type passive))))
+    (libpart (lib custom) (part CONN2)
+      (fields
+        (field (name Reference) J)
+        (field (name Value) CONN2)
+        (field (name PartNumber) 800114-102))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
     (libpart (lib custom) (part NCP1117ST50)
       (aliases
         (alias NCP1117ST33)
@@ -470,6 +495,102 @@
         (pin (num 2) (name OUT) (type power_out))
         (pin (num 3) (name IN) (type power_in))
         (pin (num 4) (name TAB) (type passive))))
+    (libpart (lib custom) (part FUSERADIAL)
+      (fields
+        (field (name Reference) F)
+        (field (name Value) FUSERADIAL)
+        (field (name Footprint) FUSERADIAL))
+      (pins
+        (pin (num 1) (name 1) (type passive))
+        (pin (num 2) (name 2) (type passive))))
+    (libpart (lib custom) (part FASTON_1)
+      (description "1 pin")
+      (fields
+        (field (name Reference) P)
+        (field (name Value) FASTON_1)
+        (field (name PartNumber) 800157-101))
+      (pins
+        (pin (num 1) (name 1) (type passive))
+        (pin (num 2) (name 2) (type passive))))
+    (libpart (lib custom) (part ESP8266-ESP-12)
+      (fields
+        (field (name Reference) U)
+        (field (name Value) ESP8266-ESP-12))
+      (pins
+        (pin (num 1) (name ~RESET) (type input))
+        (pin (num 2) (name ADC) (type input))
+        (pin (num 3) (name ~CH_PD) (type input))
+        (pin (num 4) (name GPIO16) (type input))
+        (pin (num 5) (name GPIO14) (type input))
+        (pin (num 6) (name GPIO12) (type input))
+        (pin (num 7) (name GPIO13) (type input))
+        (pin (num 8) (name VCC) (type input))
+        (pin (num 9) (name GND) (type input))
+        (pin (num 10) (name GPIO15) (type input))
+        (pin (num 11) (name GPIO2) (type input))
+        (pin (num 12) (name GPIO0) (type input))
+        (pin (num 13) (name GPIO5) (type input))
+        (pin (num 14) (name GPIO4) (type input))
+        (pin (num 15) (name RX) (type input))
+        (pin (num 16) (name TX) (type input))))
+    (libpart (lib custom) (part C_US)
+      (footprints
+        (fp CP*)
+        (fp SM*)
+        (fp C?))
+      (fields
+        (field (name Reference) C)
+        (field (name Value) C_US))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib custom) (part TESTPINTPSQ025)
+      (fields
+        (field (name Reference) TP)
+        (field (name Value) TESTPINTPSQ025)
+        (field (name Footprint) TESTPIN))
+      (pins
+        (pin (num 1) (name TP) (type passive))))
+    (libpart (lib custom) (part VARISTOR)
+      (description Resistance)
+      (footprints
+        (fp R?)
+        (fp SM0603)
+        (fp SM0805))
+      (fields
+        (field (name Reference) RV)
+        (field (name Value) VARISTOR))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib custom) (part XTAL)
+      (fields
+        (field (name Reference) Y)
+        (field (name Value) XTAL)
+        (field (name Footprint) HC49US))
+      (pins
+        (pin (num 1) (name 1) (type passive))
+        (pin (num 2) (name 2) (type passive))))
+    (libpart (lib custom) (part SW_TACT)
+      (description "Push Button")
+      (fields
+        (field (name Reference) S)
+        (field (name Value) SW_TACT))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))
+        (pin (num 3) (name ~) (type passive))
+        (pin (num 4) (name ~) (type passive))))
+    (libpart (lib custom) (part R_US)
+      (footprints
+        (fp R?)
+        (fp R_*))
+      (fields
+        (field (name Reference) R)
+        (field (name Value) R_US))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
     (libpart (lib custom) (part 90E24PYGI)
       (description "Energy Metering IC")
       (footprints
@@ -506,128 +627,7 @@
         (pin (num 25) (name SCLK) (type input))
         (pin (num 26) (name SDO) (type 3state))
         (pin (num 27) (name SDI) (type input))
-        (pin (num 28) (name MMD0) (type input))))
-    (libpart (lib custom) (part FUSERADIAL)
-      (fields
-        (field (name Reference) F)
-        (field (name Value) FUSERADIAL)
-        (field (name Footprint) FUSERADIAL))
-      (pins
-        (pin (num 1) (name 1) (type passive))
-        (pin (num 2) (name 2) (type passive))))
-    (libpart (lib custom) (part CONN2)
-      (fields
-        (field (name Reference) J)
-        (field (name Value) CONN2)
-        (field (name PartNumber) 800114-102))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib custom) (part XTAL)
-      (fields
-        (field (name Reference) Y)
-        (field (name Value) XTAL)
-        (field (name Footprint) HC49US))
-      (pins
-        (pin (num 1) (name 1) (type passive))
-        (pin (num 2) (name 2) (type passive))))
-    (libpart (lib custom) (part R_US)
-      (footprints
-        (fp R?)
-        (fp R_*))
-      (fields
-        (field (name Reference) R)
-        (field (name Value) R_US))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib custom) (part C_US)
-      (footprints
-        (fp CP*)
-        (fp SM*)
-        (fp C?))
-      (fields
-        (field (name Reference) C)
-        (field (name Value) C_US))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib custom) (part SW_TACT)
-      (description "Push Button")
-      (fields
-        (field (name Reference) S)
-        (field (name Value) SW_TACT))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))
-        (pin (num 3) (name ~) (type passive))
-        (pin (num 4) (name ~) (type passive))))
-    (libpart (lib custom) (part VARISTOR)
-      (description Resistance)
-      (footprints
-        (fp R?)
-        (fp SM0603)
-        (fp SM0805))
-      (fields
-        (field (name Reference) RV)
-        (field (name Value) VARISTOR))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib custom) (part ESP8266-ESP-12)
-      (fields
-        (field (name Reference) U)
-        (field (name Value) ESP8266-ESP-12))
-      (pins
-        (pin (num 1) (name ~RESET) (type input))
-        (pin (num 2) (name ADC) (type input))
-        (pin (num 3) (name ~CH_PD) (type input))
-        (pin (num 4) (name GPIO16) (type input))
-        (pin (num 5) (name GPIO14) (type input))
-        (pin (num 6) (name GPIO12) (type input))
-        (pin (num 7) (name GPIO13) (type input))
-        (pin (num 8) (name VCC) (type input))
-        (pin (num 9) (name GND) (type input))
-        (pin (num 10) (name GPIO15) (type input))
-        (pin (num 11) (name GPIO2) (type input))
-        (pin (num 12) (name GPIO0) (type input))
-        (pin (num 13) (name GPIO5) (type input))
-        (pin (num 14) (name GPIO4) (type input))
-        (pin (num 15) (name RX) (type input))
-        (pin (num 16) (name TX) (type input))))
-    (libpart (lib custom) (part CONN8)
-      (fields
-        (field (name Reference) J)
-        (field (name Value) CONN8)
-        (field (name PartNumber) 800114-108))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))
-        (pin (num 3) (name ~) (type passive))
-        (pin (num 4) (name ~) (type passive))
-        (pin (num 5) (name ~) (type passive))
-        (pin (num 6) (name ~) (type passive))
-        (pin (num 7) (name ~) (type passive))
-        (pin (num 8) (name ~) (type passive))))
-    (libpart (lib custom) (part TESTPINTPSQ025)
-      (fields
-        (field (name Reference) TP)
-        (field (name Value) TESTPINTPSQ025)
-        (field (name Footprint) TESTPIN))
-      (pins
-        (pin (num 1) (name TP) (type passive))))
-    (libpart (lib custom) (part CONN6)
-      (fields
-        (field (name Reference) J)
-        (field (name Value) CONN6)
-        (field (name PartNumber) 800114-106))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))
-        (pin (num 3) (name ~) (type passive))
-        (pin (num 4) (name ~) (type passive))
-        (pin (num 5) (name ~) (type passive))
-        (pin (num 6) (name ~) (type passive)))))
+        (pin (num 28) (name MMD0) (type input)))))
   (libraries
     (library (logical custom)
       (uri /home/srodgers/projects/kicad/libs/custom.lib)))
