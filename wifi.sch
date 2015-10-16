@@ -62,10 +62,6 @@ Text GLabel 9100 4550 2    60   Input ~ 0
 SDO
 Text GLabel 9100 4800 2    60   Input ~ 0
 SDI
-Text GLabel 9100 5050 2    60   Input ~ 0
-~CS
-Text GLabel 9100 5300 2    60   Input ~ 0
-IRQ
 $Comp
 L GND_US #PWR019
 U 1 1 55C8F295
@@ -176,18 +172,6 @@ Wire Wire Line
 Wire Wire Line
 	8950 4800 9100 4800
 Wire Wire Line
-	6300 4550 8500 4550
-Wire Wire Line
-	8500 4550 8500 5050
-Wire Wire Line
-	8500 5050 9100 5050
-Wire Wire Line
-	6300 4650 8400 4650
-Wire Wire Line
-	8400 4650 8400 5300
-Wire Wire Line
-	8400 5300 9100 5300
-Wire Wire Line
 	6300 5050 6800 5050
 Wire Wire Line
 	6800 5050 6800 5350
@@ -210,16 +194,6 @@ Wire Wire Line
 Connection ~ 7200 2750
 Connection ~ 4900 4350
 Wire Wire Line
-	8800 2850 7100 2850
-Wire Wire Line
-	7100 2850 7100 4550
-Connection ~ 7100 4550
-Wire Wire Line
-	8800 2950 7200 2950
-Wire Wire Line
-	7200 2950 7200 4650
-Connection ~ 7200 4650
-Wire Wire Line
 	8800 3050 7300 3050
 Wire Wire Line
 	7300 3050 7300 4750
@@ -235,7 +209,7 @@ Wire Wire Line
 	7500 3250 7500 4950
 Connection ~ 7500 4950
 Wire Wire Line
-	4900 3850 4300 3850
+	3750 3850 4900 3850
 Wire Wire Line
 	4300 3850 4300 3950
 Connection ~ 4900 3850
@@ -447,7 +421,6 @@ Wire Wire Line
 Wire Wire Line
 	3050 4350 3050 4950
 NoConn ~ 2900 4450
-NoConn ~ 2900 4550
 NoConn ~ 2900 4850
 Wire Wire Line
 	2900 4650 4600 4650
@@ -467,4 +440,39 @@ Wire Wire Line
 	4800 4650 5100 4650
 Text Notes 2450 4650 2    60   ~ 0
 PROG
+$Comp
+L R_US R17
+U 1 1 5601DF84
+P 3550 3850
+F 0 "R17" V 3630 3850 50  0000 C CNN
+F 1 "0" V 3470 3850 50  0000 C CNN
+F 2 "mods:RC0805" H 3550 3850 60  0001 C CNN
+F 3 "" H 3550 3850 60  0000 C CNN
+F 4 "800011-000" V 3550 3850 60  0001 C CNN "PartNumber"
+	1    3550 3850
+	0    1    1    0   
+$EndComp
+Connection ~ 4300 3850
+Wire Wire Line
+	2900 4550 3250 4550
+Wire Wire Line
+	3250 4550 3250 3850
+Wire Wire Line
+	3250 3850 3350 3850
+Text Notes 2300 3650 0    60   ~ 0
+INSTALL R17 TO PUT 3.3V ON J5
+Text Label 3250 4300 1    60   ~ 0
+SPWR
+Text Label 7800 3050 0    60   ~ 0
+SCLK
+Text Label 7800 3150 0    60   ~ 0
+SDO
+Text Label 7800 3250 0    60   ~ 0
+SDI
+Text Label 7800 3350 0    60   ~ 0
+GPIO16
+NoConn ~ 8800 2850
+NoConn ~ 8800 2950
+NoConn ~ 6300 4550
+NoConn ~ 6300 4650
 $EndSCHEMATC

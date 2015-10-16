@@ -36,8 +36,8 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 1 4
 Title "POWER MONITOR, AC"
-Date ""
-Rev "X1"
+Date "2015-09-22"
+Rev "A"
 Comp ""
 Comment1 ""
 Comment2 ""
